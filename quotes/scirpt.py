@@ -2,7 +2,7 @@ import pymongo
 import psycopg2
 
 
-mongo_client = pymongo.MongoClient("mongodb+srv://divan4ik223:03b.kz2005@dzweb8.m87srrp.mongodb.net/?retryWrites=true&w=majority&appName=dzweb8")
+mongo_client = pymongo.MongoClient("link")
 mongo_db = mongo_client["first_bd"]
 
 
