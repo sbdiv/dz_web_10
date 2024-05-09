@@ -25,3 +25,6 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+        
+class ResetPasswordForm(forms.Form):
+    username = forms.CharField(max_length=100, required=True, label='Username or Email')
