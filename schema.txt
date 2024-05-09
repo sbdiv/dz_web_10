@@ -1,0 +1,89 @@
+@startuml
+
+class User {
+    - username: str
+    - password1: str
+    - password2: str
+    + __str__(): str
+}
+
+class RegisterForm {
+    - username: str
+    - password1: str
+    - password2: str
+    + Meta: Class
+}
+
+class LoginForm {
+    - username: str
+    - password: str
+    + Meta: Class
+}
+
+class Author {
+    - fullname: str
+    - born_date: str
+    - born_location: str
+    - description: str
+    + __str__(): str
+}
+
+class Quote {
+    - tags: List<Tag>
+    - author: Author
+    - quote: str
+    + __str__(): str
+}
+
+class Tag {
+    - name: str
+    + __str__(): str
+}
+
+class AuthorForm {
+    - fullname: str
+    - born_date: str
+    - born_location: str
+    - description: str
+    + Meta: Class
+}
+
+class QuoteForm {
+    - tags: List<Tag>
+    - author: Author
+    - quote: str
+    + Meta: Class
+}
+
+class TagForm {
+    - name: str
+    + Meta: Class
+}
+
+class Views {
+    + main(request)
+    + create_author(request)
+    + create_quote(request)
+    + tag(request)
+    + quotes_view(request)
+    + authors(request)
+    + author_detail(request, author_id)
+}
+
+User --|> RegisterForm
+User --|> LoginForm
+Author "1" -- "*" Quote
+Quote "0..*" -- "0..*" Tag
+AuthorForm --|> Author
+QuoteForm --|> Quote
+TagForm --|> Tag
+Views ..> RegisterForm
+Views ..> LoginForm
+Views ..> AuthorForm
+Views ..> QuoteForm
+Views ..> TagForm
+Views ..> Author
+Views ..> Quote
+Views ..> Tag
+
+@enduml

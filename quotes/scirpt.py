@@ -50,3 +50,5 @@ postgres_conn.commit()
 mongo_client.close()
 postgres_cursor.close()
 postgres_conn.close()
+
+
